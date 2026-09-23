@@ -1,7 +1,7 @@
 #Análise descritiva 
-dados <- read.csv("C:\\Users\\Celinho\\Downloads\\dados_tcc\\seriea0324.csv")
-partic <- read.csv("C:\\Users\\Celinho\\Downloads\\classificacao_brasileirao_todos_os_times_2003_2024 (1).csv")
-dist <-  read.csv("C:\\Users\\Celinho\\Downloads\\dados_tcc\\distanciapercorrida.csv")
+dados <- read.csv("DadosSerieA.csv")
+partic <- read.csv("classificacao_brasileirao.csv")
+dist <-  read.csv("distanciapercorrida.csv")
 descri <- function(x) {
   return(c(
     Min = min(x, na.rm = TRUE),
