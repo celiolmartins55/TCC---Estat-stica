@@ -5,8 +5,8 @@ library(sf)
 library(dplyr)
 
 # Carregar os dados 
-vdest <- read.csv("C:\\Users\\Celinho\\Downloads\\estatisticas_por_estado.csv") 
-estados_br <- st_read("C:\\Users\\Celinho\\Documents\\tcc\\mapas\\BR_UF_2020.shp")
+vdest <- read.csv("estatisticas_por_estado.csv") 
+estados_br <- st_read("BR_UF_2020.shp")
 
 mapa_dados2 <- estados_br %>%
   left_join(vdest, by = c("SIGLA_UF" = "estado"))
