@@ -1,7 +1,9 @@
-#Análise descritiva 
+#Carregar os dados
 dados <- read.csv("DadosSerieA.csv")
 partic <- read.csv("classificacao_brasileirao.csv")
 dist <-  read.csv("distanciapercorrida.csv")
+
+# Criar uma função para facilitar 
 descri <- function(x) {
   return(c(
     Min = min(x, na.rm = TRUE),
@@ -11,6 +13,8 @@ descri <- function(x) {
     cv  = sd(x, na.rm = TRUE)/mean(x,na.rm = TRUE)*100
   ))
 }
+
+# Calcular as estatísticas para cada variável 
 attach(dados)
 descri(gols_mandante);descri(gols_visitante)
 descri(partic$Total_Participacoes)
