@@ -7,10 +7,10 @@ library(Kendall)
 library(trend)
 
 # Carregar os dados com o número de gols marcados por cada estado
-dados_estados <- read.csv("C:\\Users\\Celinho\\Downloads\\gols_por_estado.csv")
+dados_estados <- read.csv("gols_por_estado.csv")
 
 # Carregar as geometrias dos estados através do pacote geobr
-estados_br <- st_read("C:\\Users\\Celinho\\Documents\\tcc\\mapas\\BR_UF_2020.shp")
+estados_br <- st_read("BR_UF_2020.shp")
 
 # Unir os dados
 mapa_dados <- estados_br %>%
@@ -48,7 +48,7 @@ ggplot() +
   )
 
 # Carregar os dados de participações de cada estado 
-partic_est <- read.csv("C:\\Users\\Celinho\\Downloads\\participacoes_por_estado_2003_2024.csv")
+partic_est <- read.csv("participacoes_por_estado.csv")
 
 # Juntar os dados e calcular a média
 medias <- dados_estados %>% left_join(partic_est, by =c("estado"="estado"))
@@ -93,7 +93,7 @@ ggplot() +
   )
 
 
-dadosano <- read.csv("C:\\Users\\Celinho\\Documents\\Gols_estados_anos.csv")
+dadosano <- read.csv("Gols_estados_anos.csv")
 
 # Tirar estados com menos de 5 participações
 dadosano <- dadosano %>%
