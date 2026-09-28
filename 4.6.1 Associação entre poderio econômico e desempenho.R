@@ -27,6 +27,7 @@ ggplot(valor_camp, aes(x = ano_campeonato, y = valor_medio_campeao)) +
         color = "darkslategrey",  linewidth = 1) +
   scale_linetype_manual(
         name = NULL, 
-        values = c("Média Anual" = "solid"))
+        values = c("Média Anual" = "solid"))  +
+  geom_text(aes(label = time), vjust = -0.8, size = 3)
   
   
