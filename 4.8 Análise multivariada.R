@@ -19,7 +19,7 @@ dados_multivariada <- dados_brutos %>%
   select(-ano, -time, -Jogos_Fora, -Media_Viagem_KM, -empates)
 
 nomes <- c("Vitórias", "Derrotas", "Gols pró", "Gols contra","Cartões amarelos","Cartões vermelhos",
-           "Percurso percorrido","Valor médio","Idade média")
+           "Distância percorrida","Valor médio","Idade média")
 colnames(dados_multivariada) <- nomes
 dados_padronizados <- scale(dados_multivariada)
 
