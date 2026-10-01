@@ -42,7 +42,10 @@ df_evolucao <- dados %>%
   summarise(
     Media_Mandante = mean(gols_mandante, na.rm = TRUE),
     Media_Visitante = mean(gols_visitante, na.rm = TRUE),
-    Media_Total = mean(gols_mandante + gols_visitante, na.rm = TRUE)
+    Media_Total = mean(gols_mandante + gols_visitante, na.rm = TRUE),,
+    Mediana_Mandante = median(gols_mandante, na.rm = TRUE),
+    Mediana_Visitante = median(gols_visitante, na.rm = TRUE),
+    Mediana_Total = median(gols_mandante + gols_visitante, na.rm = TRUE)
   )
 
 ggplot(df_evolucao, aes(x = ano_campeonato)) +
