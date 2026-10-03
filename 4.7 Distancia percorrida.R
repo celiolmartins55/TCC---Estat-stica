@@ -4,19 +4,19 @@ install.packages("ggplot2")
 library(dplyr) 
 library(ggplot2)
 
-
 # Carregar os dados
 distancias <- read.csv("distanciapercorrida.csv")
 
 # Criar e vizualizar a tabeça
 tabela <- distancias %>% group_by(Ano) %>% 
   summarise(media = mean(Total_Viagens_KM),var = var(Total_Viagens_KM),
-            min = min(Total_Viagens_KM), max = max(Total_Viagens_KM), mediana = median(Total_Viagens_KM))
+            mediana = median(Total_Viagens_KM),min = min(Total_Viagens_KM),
+            max = max(Total_Viagens_KM),dife = max(Total_Viagens_KM) - min(Total_Viagens_KM)
+            )
+View(tabela)
 
 
-
-
-
+# Gerar o gráfico
 ggplot(tabela, aes(x = Ano)) +
   geom_point(aes(y = min, fill = "Mínima"), shape = 21, size = 2) +
   geom_point(aes(y = max, fill = "Máxima"), shape = 21, size = 2) +
@@ -35,5 +35,10 @@ ggplot(tabela, aes(x = Ano)) +
     values = c("Mínima" = "blue", "Máxima" = "red", "Média" = "black", "Mediana" = "green")
   ) +
   labs(y = "Distância") +
-  theme_minimal()
-  
+  theme_minimal() +
+  theme(legend.text = element_text(size = 16),
+        legend.title = element_text(size = 17),
+        axis.title.x = element_text(size=16),
+        axis.title.y = element_text(size=16),
+        legend.position = "right"
+  )
